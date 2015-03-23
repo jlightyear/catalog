@@ -1,0 +1,21 @@
+<% @page_title = "Admin Login" %>
+
+<div class="row vertical-center70">
+  <div class="col-md-4 col-md-offset-4 bg-info img-rounded">
+		<%= form_tag({:action => "attempt_login"}) do %>
+			<div class="form-group">
+				<br />
+	    	<%= label_tag :username, nil, :class => "control-label" %>
+		    <%= text_field_tag :username, nil, :class => "form-control" %>
+	  	</div>
+		  <div class="form-group">
+		    <%= label_tag :password, nil, :class => "control-label" %>
+		    <%= password_field_tag :password, nil, :class => "form-control" %>
+		  </div>
+		  <div class="form-group">
+		    <%= submit_tag "Log In", :class => "btn btn-primary" %>
+		    <br />
+		  </div>
+		<% end %>
+	</div>
+</div>

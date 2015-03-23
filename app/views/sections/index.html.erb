@@ -1,0 +1,51 @@
+<% @page_title = "Secciones" %>
+<div>
+	<ul class="pager">
+    	<li class="previous">
+				<%= link_to access_index_path do %>
+   				<span aria-hidden='true'>&larr;</span> Volver al menu
+				<% end %>
+			</li>
+			<li class="next">
+				<%= link_to new_section_path do %>
+   				<b>+</b> Añadir nueva sección
+				<% end %>
+			</li>
+		</ul>
+</div>
+<div class="panel panel-info">
+<!-- Default panel contents -->
+<div class="panel-heading">
+	<h4><%= pluralize(@sections.size, 'Sección encontrada' ,'Secciones encontradas') %></h4>
+</div>
+<!-- Table -->
+<table class="table">
+	<tr>
+		<th>Sección</th>
+		<th>Descripción</th>
+		<th>Imagen</th>
+		<th>PreProductos</th>
+		<th colspan="2">Acción</th>
+	</tr>
+	<% @sections.each do |section| %>
+	<tr class="<%= cycle('odd','even')%>">
+		<td><%= section.titulo %><br /><br />Referencia: <%= section.ref_sec %></td>
+		<td><%= section.titular %></td>
+		<td><%= image_tag section.image.url(:thumb) %></td>
+		<td><%= section.preproducts.size %></td>
+		<td>
+			<div class="btn-group-vertical" role="group" aria-label="...">
+				<%= link_to("Ver PreProductos", section_preproducts_path(section.id), :class => 'btn btn-default btn-sm') %>
+				<%= link_to("Mostrar", section_path(section.id), :class => 'btn btn-default btn-sm') %>
+			</div>
+		</td>
+		<td>
+			<div class="btn-group-vertical" role="group" aria-label="...">
+				<%= link_to("Editar", edit_section_path(section.id), :class => 'btn btn-default btn-sm') %>
+				<%= link_to('Borrar', section_path(section.id), method: :delete, data: { confirm: '¿Estas seguro que quieres borrar la sección?' }, :class => 'btn btn-default btn-sm') %>
+			</div>
+		</td>
+	</tr>
+	<% end %>
+</table>
+</div>

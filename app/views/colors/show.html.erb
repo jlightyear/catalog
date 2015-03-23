@@ -1,0 +1,33 @@
+<% @page_title = "Color" %>
+
+<div>
+	<ul class="pager">
+    	<li class="previous">
+				<%= link_to colors_path do %>
+   				<span aria-hidden='true'>&larr;</span> Volver al listado
+				<% end %>
+			</li>
+		</ul>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Mostrar color</h3>
+      </div>
+      <div class="panel-body">
+      	<table class="table">
+        	<tr>
+        		<th>Color:</th>
+        		<td><%= @color.color %></td>
+        	</tr>
+        	<tr>
+        		<th>Referencia:</th>
+        		<td><%= @color.ref_col %></td>
+        	</tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<% @page_title = "Section" %>
+<%= link_to("<< Volver al listado", sections_path, :class => 'back-link') %>
+
+<div class="subject delete">
+	<h2>Borrar sección</h2>
+
+	<%= form_for(:section, :url => section_path(@section.id), :method => :delete) do |f| %>
+
+		<p>¿Estas seguro que quieres borrar esta sección?</p>
+
+		<p class="reference-name"><%= @section.titulo %></p>
+
+		<div class="form-buttons">
+			<%= submit_tag("Borrar sección") %>
+		</div>
+		
+	<% end %>
+</div>

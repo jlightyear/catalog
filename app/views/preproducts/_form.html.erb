@@ -1,0 +1,23 @@
+<div class="form-group">
+  <%= error_messages_for(@preproduct) %>
+</div>
+<div class="form-group">
+  <%= f.label(:section_id, "Sección", :class => "control-label") %>
+  <%= f.select(:section_id, @sections.map {|s| [s.titulo, s.id]}, {}, :class => "form-control") %>
+</div>
+<div class="form-group">
+  <%= f.label(:titulo, "Título", :class => "control-label") %>
+  <%= f.text_field :titulo, :class => "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label(:descripcion, "Descripción", :class => "control-label") %>
+  <%= f.text_field :descripcion, :size => "40x5", :class => "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label(:ref_pre, "Referencia", :class => "control-label") %>
+  <%= f.text_field :ref_pre, :class => "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label(:precio, "Precio sin €", :class => "control-label") %>
+  <%= f.text_field :precio, :class => "form-control" %>
+</div>

@@ -1,0 +1,59 @@
+<% @page_title = "PreProducto" %>
+
+<div>
+	<ul class="pager">
+  	<li class="previous">
+			<%= link_to section_preproducts_path(@section.id) do %>
+ 				<span aria-hidden='true'>&larr;</span> Volver al listado
+			<% end %>
+		</li>
+	</ul>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Mostrar PreProducto</h3>
+      </div>
+      <div class="panel-body">
+      	<table class="table">
+        	<tr>
+        		<th>Sección:</th>
+        		<td><%= @section.titulo %></td>
+        	</tr>
+        	<tr>
+        		<th>Título:</th>
+        		<td><%= @preproduct.titulo %></td>
+        	</tr>
+        	<tr>
+        		<th>Descripción:</th>
+        		<td><%= @preproduct.descripcion %></td>
+        	</tr>
+        	<tr>
+        		<th>Referencia:</th>
+        		<td><%= @preproduct.ref_pre %></td>
+        	</tr>
+        	<tr>
+        		<th>Precio:</th>
+        		<td><%= number_to_currency(@preproduct.precio, :precision => 1, :unit => "€", :format => "%n %u") %></td>
+        	</tr>
+        	<tr>
+						<th>Creado:</th>
+						<td><%= @preproduct.created_at %></td>
+        	</tr>
+        	<tr>
+						<th>Actualizado:</th>
+						<td><%= @preproduct.updated_at %></td>
+        	</tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+		<!--
+		<tr>
+			<th>Visible?</th>
+			<td><= @preproduct.visible ? 'true' : 'false' %></td>
+		</tr>
+		-->

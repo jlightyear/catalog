@@ -1,0 +1,18 @@
+<% @page_title = "Color" %>
+<%= link_to("<< Volver al listado", colors_path, :class => 'back-link') %>
+
+<div class="subject delete">
+	<h2>Borrar color</h2>
+
+	<%= form_for(:section, :url => color_path(@color.id), :method => :delete) do |f| %>
+
+		<p>¿Estas seguro que quieres borrar este color?</p>
+
+		<p class="reference-name"><%= @color.color %></p>
+
+		<div class="form-buttons">
+			<%= submit_tag("Borrar color") %>
+		</div>
+		
+	<% end %>
+</div>

@@ -1,0 +1,55 @@
+<% @page_title = @section.titulo %>
+
+
+<section id="portfolio">
+  <div class="container">
+    <div class="row">
+      <div class="portfolio-items">
+        <% @sections.each do |section| %>
+          <div class="portfolio-item apps col-xs-12 col-sm-4 col-md-3">
+            <div class="recent-work-wrap">
+              <a class="preview" href="?section_id=<%= section.id %>" rel="prettyPhoto">
+                <%= image_tag section.image.url(:preview), :class => "img-responsive", :title => section.titulo %>
+              </a>
+              <!--
+              <div class="overtitulo">
+                <div class="recent-work-inner">
+                  <h3><%= section.titulo %></h3>
+                </div> 
+              </div>
+              -->
+              <div class="overlay">
+                <div class="recent-work-inner">
+                  <h3><a href="?section_id=<%= section.id %>"><%= section.titulo %></a></h3>
+                  <p><%= section.titular %></p>
+                  <!--
+                  <a class="preview" href="?section_id=<%= section.id %>" rel="prettyPhoto">
+                    Ver <%= section.titulo %>
+                  </a>
+                  -->
+                </div> 
+              </div>
+
+            </div>
+          </div>
+          <!--/.portfolio-item-->
+        <% end %>
+      </div>
+    </div>
+          
+    <div class="center">
+      <h2><%= @section.titulo %></h2>
+      <p class="lead"><%= @section.titular %></p>
+    </div>
+
+    <!-- views/posts/index.html.erb -->
+    <div id="products-content">
+      <%= render(partial: 'products') %>
+    </div>
+    
+    <%= will_paginate @products %>
+    <!-- boton fijo para ir al principio de la página -->
+    <a href="#" class="scrollup">Scroll</a>
+
+  </div>
+</section><!--/#portfolio-item-->

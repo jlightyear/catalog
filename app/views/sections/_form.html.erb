@@ -1,0 +1,20 @@
+<div class="form-group">
+  <%= error_messages_for(@section) %>
+</div>
+<div class="form-group">
+  <%= f.label(:titulo, "Título", :class => "control-label") %>
+  <%= f.text_field :titulo, :class => "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label(:titular, "Descripción", :class => "control-label") %>
+  <%= f.text_field :titular, :size => "40x5", :class => "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label(:ref_sec, "Referencia", :class => "control-label") %>
+  <%= f.text_field :ref_sec, :class => "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label(:image, "Imagen", :class => "control-label") %>
+  <%= image_tag @section.image.url(:thumb) if @section.image? %>
+  <%= f.file_field :image, :title => "Busca una imagen para subir" %>
+</div>

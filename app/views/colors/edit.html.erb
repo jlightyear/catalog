@@ -1,0 +1,28 @@
+<% @page_title = "Editar Color" %>
+<div>
+  <ul class="pager">
+    <li class="previous">
+      <%= link_to colors_path do %>
+        <span aria-hidden='true'>&larr;</span> Volver al listado
+      <% end %>
+    </li>
+  </ul>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Actualizar Color</h3>
+      </div>
+      <div class="panel-body">
+        <%= form_for(:color, :url => color_path(@color.id), :method => :patch) do |f| %>
+        <%= render(:partial => "form", :locals => {:f => f}) %>
+		    <div class="form-buttons">
+          <%= submit_tag("Actualizar color", :class => "btn btn-primary") %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

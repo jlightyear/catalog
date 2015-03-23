@@ -1,0 +1,49 @@
+<% @page_title = "Sección" %>
+
+<div>
+	<ul class="pager">
+  	<li class="previous">
+			<%= link_to sections_path do %>
+ 				<span aria-hidden='true'>&larr;</span> Volver al listado
+			<% end %>
+		</li>
+	</ul>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Mostrar sección</h3>
+      </div>
+      <div class="panel-body">
+      	<table class="table">
+        	<tr>
+        		<th>Título:</th>
+        		<td><%= @section.titulo %></td>
+        	</tr>
+        	<tr>
+        		<th>Descripción:</th>
+        		<td><%= @section.titular %></td>
+        	</tr>
+        	<tr>
+        		<th>Referencia:</th>
+        		<td><%= @section.ref_sec %></td>
+        	</tr>
+        	<tr>
+        		<th>Imagen:</th>
+        		<td><%= image_tag @section.image.url(:preview) %></td>
+        	</tr>
+        	<tr>
+						<th>Creada:</th>
+						<td><%= @section.created_at %></td>
+        	</tr>
+        	<tr>
+						<th>Actualizada:</th>
+						<td><%= @section.updated_at %></td>
+        	</tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

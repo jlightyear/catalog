@@ -1,0 +1,28 @@
+<% @page_title = "Nuevo Producto" %>
+<div>
+  <ul class="pager">
+    <li class="previous">
+      <%= link_to section_preproduct_products_path(@section.id,@preproduct.id) do %>
+        <span aria-hidden='true'>&larr;</span> Volver al listado
+      <% end %>
+    </li>
+  </ul>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Crear Producto</h3>
+      </div>
+      <div class="panel-body">
+        <%= form_for(:product, :url => section_preproduct_products_path(@section.id, @preproduct.id), :html => { :multipart => true }, :method => :post) do |f| %>
+          <%= render(:partial => "form", :locals => {:f => f}) %>
+        <div class="form-buttons">
+          <%= submit_tag("Crear Producto", :class => "btn btn-primary") %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

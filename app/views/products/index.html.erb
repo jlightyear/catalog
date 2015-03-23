@@ -1,0 +1,46 @@
+<% @page_title = "Productos" %>
+<div>
+	<ul class="pager">
+    	<li class="previous">
+				<%= link_to section_preproducts_path(@section.id) do %>
+   				<span aria-hidden='true'>&larr;</span> Volver al listado
+				<% end %>
+			</li>
+			<li class="next">
+				<%= link_to new_section_preproduct_product_path(@section.id, @preproduct.id) do %>
+   				<b>+</b> Añadir nuevo producto
+				<% end %>
+			</li>
+		</ul>
+</div>
+<div class="panel panel-info">
+<!-- Default panel contents -->
+<div class="panel-heading">
+	<h4><%= pluralize(@preproduct.products.size, 'Producto encontrado', 'Productos encontrados') %> de <%= @preproduct.titulo %></h4>
+</div>
+<!-- Table -->
+<table class="table">
+	<tr>
+		<th>Título</th>
+		<th>Descripción</th>
+		<th>Precio</th>
+		<th>Imagen</th>
+		<th>Acción</th>
+	</tr>
+	<% @products.each do |product| %>
+	<tr class="<%= cycle('odd','even')%>">
+		<td><%= product.titulo %><br /><br />Referencia: <%= product.ref_pro %></td>
+		<td><%= product.descripcion %></td>
+		<td><%= number_to_currency(product.precio, :precision => 1, :unit => "€", :format => "%n %u") %></td>
+		<td><%= image_tag product.image.url(:thumb), :alt => product.titulo, :title => product.titulo %></td>
+		<td>
+			<div class="btn-group-vertical" role="group" aria-label="...">
+				<%= link_to("Mostrar", section_preproduct_product_path(@section.id, @preproduct.id, product.id), :class => 'btn btn-default btn-sm') %>
+				<%= link_to("Editar", edit_section_preproduct_product_path(@section.id, @preproduct.id, product.id), :class => 'btn btn-default btn-sm') %>
+				<%= link_to('Borrar', section_preproduct_product_path(@section.id, @preproduct.id, product.id), method: :delete, data: { confirm: '¿Estas seguro que quieres borrar el producto?' }, :class => 'btn btn-default btn-sm') %>
+			</div>
+		</td>
+	</tr>
+	<% end %>
+</table>
+</div>

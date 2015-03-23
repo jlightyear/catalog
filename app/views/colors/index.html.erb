@@ -1,0 +1,43 @@
+<% @page_title = "Colores" %>
+
+<div>
+	<ul class="pager">
+    	<li class="previous">
+				<%= link_to access_index_path do %>
+   				<span aria-hidden='true'>&larr;</span> Volver al menu
+				<% end %>
+			</li>
+			<li class="next">
+				<%= link_to new_color_path do %>
+   				<b>+</b> Añadir nuevo color
+				<% end %>
+			</li>
+		</ul>
+</div>
+<div class="panel panel-info">
+<!-- Default panel contents -->
+<div class="panel-heading">
+	<h4><%= pluralize(@colors.size, 'Color encontrado' ,'Colores encontrados') %></h4>
+</div>
+<!-- Table -->
+<table class="table">
+	<tr>
+		<th>Color</th>
+		<th>Referencia</th>
+		<th>Acción</th>
+	</tr>
+	<% @colors.each do |color| %>
+	<tr class="<%= cycle('odd','even')%>">
+		<td><%= color.color %></td>
+		<td><%= color.ref_col %></td>
+		<td>
+			<div class="btn-group" role="group" aria-label="...">
+				<%= link_to("Mostrar", color_path(color.id), :class => 'btn btn-default btn-sm') %>
+				<%= link_to("Editar", edit_color_path(color.id), :class => 'btn btn-default btn-sm') %>
+				<%= link_to('Borrar', color_path(color.id), method: :delete, data: { confirm: '¿Estas seguro que quieres borrar el color?' }, :class => 'btn btn-default btn-sm') %>
+			</div>
+		</td>
+	</tr>
+	<% end %>
+</table>
+</div>

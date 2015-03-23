@@ -1,0 +1,56 @@
+<% @page_title = "Producto" %>
+
+<div>
+	<ul class="pager">
+  	<li class="previous">
+			<%= link_to section_preproduct_products_path(@section.id,@preproduct.id) do %>
+ 				<span aria-hidden='true'>&larr;</span> Volver al listado
+			<% end %>
+		</li>
+	</ul>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Mostrar producto</h3>
+      </div>
+      <div class="panel-body">
+      	<table class="table">
+      		<tr>
+        		<th>Preproducto:</th>
+        		<td><%= @preproduct.titulo %></td>
+        	</tr>
+        	<tr>
+        		<th>Título:</th>
+        		<td><%= @product.titulo %></td>
+        	</tr>
+        	<tr>
+        		<th>Descripción:</th>
+        		<td><%= @product.descripcion %></td>
+        	</tr>
+        	<tr>
+        		<th>Referencia:</th>
+        		<td><%= @product.ref_pro %></td>
+        	</tr>
+        	<tr>
+        		<th>Imagen:</th>
+        		<td><%= image_tag @product.image.url(:preview) %></td>
+        	</tr>
+        	<tr>
+        		<th>Precio:</th>
+        		<td><%= number_to_currency(@product.precio, :precision => 1, :unit => "€", :format => "%n %u") %></td>
+        	<tr>
+						<th>Creado:</th>
+						<td><%= @product.created_at %></td>
+        	</tr>
+        	<tr>
+						<th>Actualizado:</th>
+						<td><%= @product.updated_at %></td>
+        	</tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

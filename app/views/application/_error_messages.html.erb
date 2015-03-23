@@ -1,0 +1,14 @@
+<% if object && object.errors.size > 0 %>
+  <div class="panel panel-danger">
+  <!-- Default panel contents -->
+    <div class="panel-heading">
+      <%= pluralize(object.errors.size, "error") %> prohibited this record from being saved
+    </div>
+    <!-- List group -->
+    <ul class="list-group">
+      <% object.errors.full_messages.each do |msg| %>
+        <li class="list-group-item"><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

@@ -1,0 +1,18 @@
+<% @page_title = "PreProducto" %>
+<%= link_to("<< Volver al listado", section_preproducts_path(@section.id), :class => 'back-link') %>
+
+<div class="subject delete">
+	<h2>Borrar PreProducto</h2>
+
+	<%= form_for(:preproduct, :url => section_preproduct_path(@section.id, @preproduct.id), :method => :delete) do |f| %>
+
+		<p>¿Estas seguro que quieres borrar este PreProducto?</p>
+
+		<p class="reference-name"><%= @preproduct.titulo %></p>
+
+		<div class="form-buttons">
+			<%= submit_tag("Borrar PreProducto") %>
+		</div>
+		
+	<% end %>
+</div>

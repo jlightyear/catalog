@@ -1,0 +1,47 @@
+<% @page_title = "Admins" %>
+
+<div>
+	<ul class="pager">
+    	<li class="previous">
+				<%= link_to access_index_path do %>
+   				<span aria-hidden='true'>&larr;</span> Volver al menu
+				<% end %>
+			</li>
+			<li class="next">
+				<%= link_to new_admin_path do %>
+   				<b>+</b> Añadir administrador
+				<% end %>
+			</li>
+		</ul>
+</div>
+
+<div class="panel panel-info">
+<!-- Default panel contents -->
+	<div class="panel-heading">
+		<h4><%= pluralize(@admins.size, 'administrador encontrado' ,'administradores encontrados') %></h4>
+	</div>
+	<!-- Table -->
+	<table class="table">
+		<tr>
+			<th>Username</th>
+			<th>Email</th>
+			<th>Activo</th>
+			<th>Creado</th>
+			<th>Acción</th>
+		</tr>
+		<% @admins.each do |admin| %>
+		<tr class="<%= cycle('odd','even')%>">
+			<td><%= admin.username %></td>
+			<td><%= admin.email %></td>
+			<td><%= status_tag(admin.active) %></td>
+			<td><%= admin.created_at %></td>
+			<td>
+				<div class="btn-group" role="group" aria-label="...">
+					<%= link_to("Editar", edit_admin_path(admin.id), :class => 'btn btn-default btn-sm') %>
+					<%= link_to('Borrar', admin_path(admin.id), method: :delete, data: { confirm: '¿Estas seguro que quieres borrar el usuario admin?' }, :class => 'btn btn-default btn-sm') %>
+				</div>
+			</td>
+		</tr>
+		<% end %>
+	</table>
+</div>
