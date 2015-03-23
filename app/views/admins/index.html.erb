@@ -30,18 +30,18 @@
 			<th>Acción</th>
 		</tr>
 		<% @admins.each do |admin| %>
-		<tr class="<%= cycle('odd','even')%>">
-			<td><%= admin.username %></td>
-			<td><%= admin.email %></td>
-			<td><%= status_tag(admin.active) %></td>
-			<td><%= admin.created_at %></td>
-			<td>
-				<div class="btn-group" role="group" aria-label="...">
-					<%= link_to("Editar", edit_admin_path(admin.id), :class => 'btn btn-default btn-sm') %>
-					<%= link_to('Borrar', admin_path(admin.id), method: :delete, data: { confirm: '¿Estas seguro que quieres borrar el usuario admin?' }, :class => 'btn btn-default btn-sm') %>
-				</div>
-			</td>
-		</tr>
+			<tr class="<%= cycle('odd','even')%>">
+				<td><%= admin.username %></td>
+				<td><%= admin.email %></td>
+				<td><%= status_tag(admin.active) %></td>
+				<td><%= admin.created_at %></td>
+				<td>
+					<div class="btn-group" role="group" aria-label="...">
+						<%= link_to("Editar", edit_admin_path(admin.id), :class => 'btn btn-default btn-sm') %>
+						<%= link_to('Borrar', admin_path(admin.id), method: :delete, data: { confirm: '¿Estas seguro que quieres borrar el usuario admin?' }, :class => 'btn btn-default btn-sm') %>
+					</div>
+				</td>
+			</tr>
 		<% end %>
 	</table>
 </div>
