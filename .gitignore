@@ -8,9 +8,24 @@
 /.bundle
 
 # Ignore the default SQLite database.
+*.rbc
+capybara-*.html
+.rspec
 /db/*.sqlite3
 /db/*.sqlite3-journal
+/log
+/tmp
+/public/system
+/coverage/
+/spec/tmp
+**.orig
+rerun.txt
+pickle-email-*.html
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# TODO Comment out these rules if you are OK with secrets being uploaded to the repo
+config/initializers/secret_token.rb
+config/secrets.yml
