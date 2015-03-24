@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'home/index'
 
   get 'start/new'
+  get 'start' => 'start#new'
 
   get 'catalogo/index'
   get 'catalogo/show'
