@@ -1,28 +1,31 @@
-== README
+== CATALOG
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Catalog es un CMS en Ruby on Rails 4 y MySQL para crear y administrar un catálogo de productos.
+He utilizado bootstrap para los estilos, aunque he modificado y añadido alguno, como por ejemplo para obtener un footer siempre en la parte de abajo.
 
-Things you may want to cover:
+Está compuesto por dos partes, la parte de administración y la visualización del catálogo.
 
-* Ruby version
+ADMINISTRACIÓN:
+En la parte de administración se debe introducir usuario y password para poder acceder
+(he utilizado gem 'bcrypt', '~> 3.1.7’ para la autenticación)
+La primera vez al no existir usuario administrador en la base de datos se debe crear a través de “localhost:3000/start”, el primer usuario administrador será superadmin y podrá crear nuevos administradores.
+Al CMS de administración del catálogo y usuarios administrador se accede a través de “localhost:3000/access”
 
-* System dependencies
+Una vez logueado en el menú tenemos todas las acciones disponibles:
 
-* Configuration
+Administrar catálogo:
+Podemos crear, editar y borrar secciones (categorias de productos) sus preproductos (productos globales sin color definido) y los productos finales (preproductos con imagen y color definido).
+(he utilizado imagemagick y paperclip para el procesado y upload de imagénes)
 
-* Database creation
+Administrar colores:
+Son la lista de colores que se utilizan para los productos finales.
 
-* Database initialization
+Administrar usuarios admin:
+Solo está disponible si eres el superadmin y puedes crear, editar, activar o desactivar y borrar los usuarios administrador. (Siendo administrador solo puedes interactuar con tu propio usuario).
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+CATÁLOGO:
+Para la visualización del catálogo se accede con “localhost:3000”, donde se muestran las secciones del catálogo.
+Siempre tenemos acceso a las diferentes secciones en la parte superior, al seleccionar una se nos muestra los productos por orden de referencia y la paginación se realiza por scroll teniendo un botón en la parte inferior de la página para subir hasta la cabecera.
+(He utilizado will_paginate, javascript y jquery para la paginación y el botón de subir hasta la cabecera).
+Clicando en cualquiera de los productos, se accede a la ficha especifica del producto con una imagen más grande para poder apreciarlo con más detalle.
+Se pueden recorrer todas las fichas especificas de los productos de esa sección con los correspondientes “anterior y siguiente”.
