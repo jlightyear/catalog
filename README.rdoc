@@ -27,5 +27,5 @@ CATÁLOGO:
 Para la visualización del catálogo se accede con “localhost:3000”, donde se muestran las secciones del catálogo.
 Siempre tenemos acceso a las diferentes secciones en la parte superior, al seleccionar una se nos muestra los productos por orden de referencia y la paginación se realiza por scroll teniendo un botón en la parte inferior de la página para subir hasta la cabecera.
 (He utilizado will_paginate, javascript y jquery para la paginación y el botón de subir hasta la cabecera).
-Clicando en cualquiera de los productos, se accede a la ficha especifica del producto con una imagen más grande para poder apreciarlo con más detalle, la imagen es un link para poder ampliarla aún más (He utilizado fancybox para la ampliación de la imagen)
+Clicando en cualquiera de los productos, se accede a la ficha especifica del producto con una imagen más grande para poder apreciarlo con más detalle, la imagen es un link para poder ampliarla aún más (He utilizado fancybox para la ampliación de la imagen).
 Se pueden recorrer todas las fichas especificas de los productos de esa sección con los correspondientes “anterior y siguiente”.
