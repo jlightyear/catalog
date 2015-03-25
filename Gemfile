@@ -35,6 +35,9 @@ gem 'bcrypt', '~> 3.1.7'
 #paginación
 gem 'will_paginate', '~> 3.0.7'
 
+#lightbox to show images
+gem 'fancybox2-rails', '~> 0.2.8'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

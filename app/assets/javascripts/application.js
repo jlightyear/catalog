@@ -14,6 +14,7 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
+//= require fancybox
 //= require_tree .
 
 $(document).ready(function() {
@@ -41,4 +42,15 @@ $(document).ready(function() {
     return $(window).scroll();
   }
 
+  $('a.fancy-box').fancybox({
+    openEffect  : 'elastic',
+    closeEffect : 'elastic',
+
+    helpers : {
+      title : {
+        type : 'inside'
+      }
+    }
+  });
+  
 });
