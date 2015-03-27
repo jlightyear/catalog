@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'search/index'
+
+  get 'search/show'
+
   root 'home#index'
   get 'home/index'
 

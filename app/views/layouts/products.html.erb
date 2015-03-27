@@ -49,6 +49,13 @@
                 <a href="#">Contact</a>
             </li>
           </ul>
+
+          <%= form_tag({:controller => "search", :action => "index"}, :method => :get, :class => "navbar-form navbar-left", :role => "search") do %>
+            <div class="form-group">
+              <%= text_field_tag "searchbox", params[:searchbox], :class => "form-control", :placeholder => "Search" %>
+            </div>
+            <%= submit_tag "Search", :name => nil, :class => "btn btn-default" %>
+          <% end %>
         </div>
           <!-- /.navbar-collapse -->
       </div>

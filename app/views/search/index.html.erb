@@ -1,4 +1,4 @@
-<% @page_title = @section.titulo %>
+<% @page_title = "Resultados de la busqueda" %>
 
 <section id="portfolio">
   <div class="container">
@@ -38,8 +38,8 @@
     </div>
           
     <div class="center">
-      <h2><%= @section.titulo %></h2>
-      <p class="lead"><%= @section.titular %></p>
+      <h2><%= @page_title %></h2>
+      <p class="lead"><%= @products.size %></p>
     </div>
 
     <!-- views/posts/index.html.erb -->
@@ -47,7 +47,7 @@
       <%= render(partial: 'products') %>
     </div>
     
-    <%= will_paginate @products %>
+    <!--<= will_paginate @products %>-->
     <!-- boton fijo para ir al principio de la página -->
     <a href="#" class="scrollup">Scroll</a>
 

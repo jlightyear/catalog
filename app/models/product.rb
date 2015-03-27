@@ -59,4 +59,12 @@ class Product < ActiveRecord::Base
       self.ref_pro =  "#{self.preproduct.section.ref_sec}#{self.preproduct.ref_pre}#{self.color.ref_col}"
     end
 
+    def self.search(search)
+      result = where('titulo LIKE ?', "%#{search}%")
+      result += where('descripcion LIKE ?', "%#{search}%")
+      result += where('ref_pro LIKE ?', "%#{search}%")
+      result.uniq
+      result = result.sort_by &:ref_pro
+    end
+
 end
