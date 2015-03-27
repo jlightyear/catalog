@@ -3,10 +3,10 @@
   <% @products.each do |product| %>
   <div class="col-sm-4 col-lg-3 col-md-4">
     <div class="thumbnail">
-      <%= link_to((image_tag product.image.url(:preview), :class => "img-responsive", :title => product.titulo, :alt => product.titulo), search_show_path(:product_id => product.id), :class => 'preview', :rel => 'prettyPhoto') %>
+      <%= link_to((image_tag product.image.url(:preview), :class => "img-responsive", :title => product.titulo, :alt => product.titulo), search_show_path(:product_id => product.id, :searchbox => params[:searchbox]), :class => 'preview', :rel => 'prettyPhoto') %>
       <div class="caption">
         <h4>
-          <%= link_to(product.titulo, search_show_path(:product_id => product.id), :class => 'preview', :rel => 'prettyPhoto') %></h4>
+          <%= link_to(product.titulo, search_show_path(:product_id => product.id, :searchbox => params[:searchbox]), :class => 'preview', :rel => 'prettyPhoto') %></h4>
         <div class="description">
           <p><%= product.descripcion %></p>
         </div>

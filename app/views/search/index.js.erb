@@ -1,0 +1,6 @@
+$('#products-content').append("<%= escape_javascript render(partial: 'products', format: 'html') %>");
+<% if @products.next_page %> 
+  $('.pagination').replaceWith('<%= escape_javascript will_paginate(@products) %>');
+<% else %>
+  $('.pagination').remove();
+<% end %>

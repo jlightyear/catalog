@@ -1,12 +1,13 @@
 class SearchController < ApplicationController
 
+  require 'will_paginate/array'
   layout 'products'
   
   def index
     @sections = Section.sorted
-    
+
     if(params.has_key?(:searchbox))
-      @products = Product.search(params[:searchbox])
+      @products = Product.search(params[:searchbox]).paginate(:page => params[:page], :per_page => 4)
     else
       redirect_to catalogo_index_path
     end
