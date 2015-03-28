@@ -8,6 +8,12 @@ class SearchController < ApplicationController
 
     unless params[:searchbox].blank? 
       @products = Product.search(params[:searchbox]).paginate(:page => params[:page], :per_page => 4)
+
+      respond_to do |format|
+        format.html
+        format.js
+      end
+      
     else
       redirect_to catalogo_index_path
     end
