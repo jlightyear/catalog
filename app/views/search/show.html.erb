@@ -16,6 +16,8 @@
       <p><%= @product.descripcion %></p>
       <p>Precio: <%= number_to_currency(@product.precio, :precision => 0, :unit => "€", :format => "%n %u") %></p>
       <p>Referencia: <%= @product.ref_pro %></p>
+      <br /><br />
+      <p><%= link_to("Anterior", search_show_path(:product_id => @previous_product, :searchbox => params[:searchbox])) %> - <%= link_to("Siguiente", search_show_path(:product_id => @next_product, :searchbox => params[:searchbox])) %></p>
     </div>
   </div>
   <!-- /.row -->
