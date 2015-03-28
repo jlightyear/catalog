@@ -1,4 +1,15 @@
 <% @page_title = @product.titulo %>
+
+<div>
+  <ul class="pager">
+    <li class="previous">
+      <%= link_to catalogo_index_path(:section_id => @product.preproduct.section_id) do %>
+        <span aria-hidden='true'>&larr;</span> Volver al listado
+      <% end %>
+    </li>
+  </ul>
+</div>
+
 <!-- Page Content -->
 <div class="container">
   <!-- Portfolio Item Row -->
@@ -7,17 +18,32 @@
       <%= link_to @product.image.url(:large), :class => "fancy-box", :title => @product.titulo do %>
         <%= image_tag @product.image.url(:standard), :class => "img-responsive", :title => @product.titulo %>
       <% end %>
-      <p><%= link_to("Volver", catalogo_index_path(:section_id => @product.preproduct.section_id)) %></p>
     </div>
 
-    <div class="col-md-6">
-      <br /><br />
-      <h3><%= @product.titulo %></h3>
+    <div class="col-md-5">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h2 class="panel-title"><%= @product.titulo %></h2>
+        </div>
+      </div>
       <p><%= @product.descripcion %></p>
       <p>Precio: <%= number_to_currency(@product.precio, :precision => 0, :unit => "€", :format => "%n %u") %></p>
       <p>Referencia: <%= @product.ref_pro %></p>
       <br /><br />
-      <p><%= link_to("Anterior", catalogo_show_path(:product_id => @previous_product)) %> - <%= link_to("Siguiente", catalogo_show_path(:product_id => @next_product)) %></p>
+      <div>
+        <ul class="pager">
+          <li class="previous">
+            <%= link_to catalogo_show_path(:product_id => @previous_product) do %>
+              <span aria-hidden='true'>&laquo;</span> Anterior
+            <% end %>
+          </li>
+          <li class="next">
+            <%= link_to catalogo_show_path(:product_id => @next_product) do %>
+              Siguiente <span aria-hidden='true'>&raquo;</span>
+            <% end %>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
   <!-- /.row -->
