@@ -21,16 +21,20 @@
     </div>
 
     <div class="col-md-5">
-      <br /><br />
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <h2 class="panel-title"><%= @product.titulo %></h2>
-        </div>
-      </div>
-      <p><%= @product.descripcion %></p>
-      <p>Precio: <%= number_to_currency(@product.precio, :precision => 0, :unit => "€", :format => "%n %u") %></p>
-      <p>Referencia: <%= @product.ref_pro %></p>
-      <br /><br />
+      <br />
+      <h2 class="text-primary"><%= @product.titulo %></h2>
+
+      <dl>
+        <dt class="text-primary">Descripción:</dt>
+        <dd class="text-muted"><%= @product.descripcion %></dd>
+        <br />
+        <dt class="text-primary">Precio:</dt>
+        <dd class="text-muted"><%= number_to_currency(@product.precio, :precision => 0, :unit => "€", :format => "%n %u") %></dd>
+        <br />
+        <dt class="text-primary">Referencia:</dt>
+        <dd class="text-muted"><%= @product.ref_pro %></dd>
+      </dl>
+      <br />
       <div>
         <ul class="pager">
           <li class="previous">
