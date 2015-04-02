@@ -3,7 +3,7 @@ class CatalogoController < ApplicationController
   layout 'products'
 
   def index
-  	@sections = Section.sorted
+  	common_variable_sections
 
   	if params[:section_id]
   		@section = Section.find(params[:section_id])
@@ -21,6 +21,7 @@ class CatalogoController < ApplicationController
   end
 
   def show
+    common_variable_sections
 
     if params[:product_id] 
       @product = Product.find(params[:product_id])
@@ -42,6 +43,12 @@ class CatalogoController < ApplicationController
       redirect_to catalogo_index_path
     end
 
+  end
+
+  private
+
+  def common_variable_sections
+    @sections = Section.sorted
   end
 
 end

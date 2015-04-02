@@ -3,7 +3,13 @@ class HomeController < ApplicationController
   layout 'products'
 
   def index
-  	@sections = Section.sorted
+  	common_variable_sections
+  end
+
+  private
+
+  def common_variable_sections
+    @sections = Section.sorted
   end
   
 end

@@ -4,7 +4,7 @@ class SearchController < ApplicationController
   layout 'products'
   
   def index
-    @sections = Section.sorted
+    common_variable_sections
 
     unless params[:searchbox].blank? 
       @products = Product.search(params[:searchbox]).paginate(:page => params[:page], :per_page => 4)
@@ -20,6 +20,8 @@ class SearchController < ApplicationController
   end
 
   def show
+    common_variable_sections
+
     if params[:product_id] && !params[:searchbox].blank?
       @product = Product.find(params[:product_id])
       @products = Product.search(params[:searchbox])
@@ -39,6 +41,12 @@ class SearchController < ApplicationController
     else
       redirect_to catalogo_index_path
     end
+  end
+
+  private
+
+  def common_variable_sections
+    @sections = Section.sorted
   end
 
 end
