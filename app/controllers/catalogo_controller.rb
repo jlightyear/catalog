@@ -45,10 +45,4 @@ class CatalogoController < ApplicationController
 
   end
 
-  private
-
-  def common_variable_sections
-    @sections = Section.sorted
-  end
-
 end

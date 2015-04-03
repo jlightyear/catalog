@@ -15,4 +15,8 @@ class ApplicationController < ActionController::Base
   	end
   end
 
+  def common_variable_sections
+    @sections = Section.sorted
+  end
+
 end
