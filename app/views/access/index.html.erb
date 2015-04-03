@@ -9,7 +9,7 @@
       <div class="list-group">
     		<%= link_to("Administrar catálogo", sections_path, :class => "list-group-item") %>
         <%= link_to("Administrar colores", colors_path, :class => "list-group-item") %>
-    		<%= link_to("Ver catálogo", catalogo_index_path, :target => '_blank', :class => "list-group-item") %>
+    		<%= link_to("Ver catálogo", home_index_path, :target => '_blank', :class => "list-group-item") %>
     		<%  if session[:super_admin] %>
           <%= link_to("Administrar usuarios admin", admins_path, :class => "list-group-item") %>
         <% end %>
