@@ -35,10 +35,12 @@ class AccessController < ApplicationController
       # mark admin as logged in
       session[:admin_id] = authorized_user.id
       session[:admin_username] = authorized_user.username
+
       # mark admin like super_admin
       if authorized_user.id == @primer_admin.id
         session[:super_admin] = true
       end
+      
       flash[:notice] = "Estás logueado."
       redirect_to(access_index_path)
     else
