@@ -5,11 +5,8 @@ class CatalogoController < ApplicationController
   def index
   	common_variable_sections
 
-  	if params[:section_id]
-  		@section = Section.find(params[:section_id])
-  	else
-  		@section = Section.first
-  	end
+  	#operador ternario
+    @section = params[:section_id] ? Section.find(params[:section_id]) : Section.first
 
     @products = Product.includes(:preproduct).where('preproducts.section_id' => @section.id).sorted.paginate(:page => params[:page], :per_page => 4)
     
@@ -27,18 +24,8 @@ class CatalogoController < ApplicationController
       @product = Product.find(params[:product_id])
       @products = Product.includes(:preproduct).where('preproducts.section_id' => @product.preproduct.section_id).sorted
       
-      if @products.next(@product).first
-        @next_product = @products.next(@product).first
-      else
-        @next_product = @products.first
-      end
-
-      if @products.previous(@product).last
-        @previous_product = @products.previous(@product).last
-      else
-        @previous_product = @products.last
-      end
-
+      @next_product = @products.next(@product).first ? @products.next(@product).first : @products.first
+      @previous_product = @products.previous(@product).last ? @products.previous(@product).last : @products.last
     else
       redirect_to catalogo_index_path
     end
