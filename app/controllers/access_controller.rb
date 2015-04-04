@@ -40,7 +40,7 @@ class AccessController < ApplicationController
       if authorized_user.id == @primer_admin.id
         session[:super_admin] = true
       end
-      
+
       flash[:notice] = "Estás logueado."
       redirect_to(access_index_path)
     else
@@ -54,9 +54,8 @@ class AccessController < ApplicationController
     # mark admin as logged out
     session[:admin_id] = nil
     session[:admin_username] = nil
-    if session[:super_admin]
-      session[:super_admin] = nil
-    end
+    session[:super_admin] = nil
+    
     flash[:alert] = "Logged out."
     redirect_to(access_login_path)
   end

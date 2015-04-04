@@ -6,6 +6,7 @@ class AdminsController < ApplicationController
     if !session[:super_admin]
       redirect_to(access_index_path)
     end
+    #we don't want the first admin (superadmin)
     @admins = Admin.sorted[1..Admin.all.size]
   end
 
