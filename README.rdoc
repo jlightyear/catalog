@@ -1,4 +1,6 @@
-== CATALOG
+== README
+
+* Rails version 4.1.5
 
 Catalog es un CMS en Ruby on Rails 4 y MySQL para crear y administrar un catálogo de productos.
 He utilizado bootstrap para los estilos, aunque he modificado y añadido alguno, como por ejemplo para obtener un footer siempre en la parte de abajo.
